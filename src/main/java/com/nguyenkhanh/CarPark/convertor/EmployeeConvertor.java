@@ -1,11 +1,26 @@
 package com.nguyenkhanh.CarPark.convertor;
 
 import com.nguyenkhanh.CarPark.dto.EmployeeDTO;
+import com.nguyenkhanh.CarPark.dto.EmployeeDTOResponse;
 import com.nguyenkhanh.CarPark.entity.EmployeeEntity;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
+@Component
 public class EmployeeConvertor {
+    public EmployeeDTOResponse entityToDTOResponse(EmployeeEntity employeeEntity) {
+        EmployeeDTOResponse employeeDTOResponse = new EmployeeDTOResponse();
+
+        employeeDTOResponse.setDepartment(employeeEntity.getDepartment());
+        employeeDTOResponse.setEmployeeAddress(employeeEntity.getEmployeeAddress());
+        employeeDTOResponse.setEmployeeBirthDate(employeeEntity.getEmployeeBirthDate().toString());
+        employeeDTOResponse.setEmployeeName(employeeEntity.getEmployeeName());
+        employeeDTOResponse.setEmployeePhone(employeeEntity.getEmployeePhone());
+
+        return employeeDTOResponse;
+    }
+
     public EmployeeDTO entityToDTO(EmployeeEntity employeeEntity) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
 

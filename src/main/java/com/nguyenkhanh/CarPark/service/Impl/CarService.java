@@ -5,7 +5,6 @@ import com.nguyenkhanh.CarPark.dto.CarDTO;
 import com.nguyenkhanh.CarPark.entity.CarEntity;
 import com.nguyenkhanh.CarPark.service.ICarService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +13,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class CarService implements ICarService {
-    @Autowired
-    private ICarRepository carRepository;
+//    @Autowired
+//    private ICarRepository carRepository;
+//
+//    @Autowired
+//    private ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ICarRepository carRepository;
+    private final ModelMapper modelMapper;
+
+    public CarService(ICarRepository carRepository, ModelMapper modelMapper) {
+        this.carRepository = carRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public void addCar(CarDTO carDTO) {

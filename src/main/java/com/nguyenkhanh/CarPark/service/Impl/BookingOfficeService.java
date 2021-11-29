@@ -5,7 +5,6 @@ import com.nguyenkhanh.CarPark.dto.BookingOfficeDTO;
 import com.nguyenkhanh.CarPark.entity.BookingOfficeEntity;
 import com.nguyenkhanh.CarPark.service.IBookingOfficeService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +13,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class BookingOfficeService implements IBookingOfficeService {
-    @Autowired
-    private IBookingOfficeRepository bookingOfficeRepository;
+//    @Autowired
+//    private IBookingOfficeRepository bookingOfficeRepository;
+//
+//    @Autowired
+//    private ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final IBookingOfficeRepository bookingOfficeRepository;
+    private final ModelMapper modelMapper;
+
+    public BookingOfficeService(IBookingOfficeRepository bookingOfficeRepository, ModelMapper modelMapper) {
+        this.bookingOfficeRepository = bookingOfficeRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public void addBookingOffice(BookingOfficeDTO bookingOfficeDTO) {

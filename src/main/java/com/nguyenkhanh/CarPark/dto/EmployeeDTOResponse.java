@@ -11,6 +11,10 @@ public class EmployeeDTOResponse {
     private String employeeName;
     private String employeePhone;
 
+    public EmployeeDTOResponse() {
+        super();
+    }
+
     public EmployeeDTOResponse(long employeeId, String department, String employeeAddress, String employeeBirthDate, String employeeName, String employeePhone) {
         this.employeeId = employeeId;
         this.department = department;

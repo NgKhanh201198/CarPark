@@ -14,12 +14,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class ParkingLotService implements IParkingLotService {
-    @Autowired
-    private IParkingLotRepository parkingLotRepository;
+//    @Autowired
+//    private IParkingLotRepository parkingLotRepository;
+//
+//    @Autowired
+//    private ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final IParkingLotRepository parkingLotRepository;
+    private final ModelMapper modelMapper;
 
+    public ParkingLotService(IParkingLotRepository parkingLotRepository, ModelMapper modelMapper) {
+        this.parkingLotRepository = parkingLotRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public void addParkingLot(ParkingLotDTO parkingLotDTO) {

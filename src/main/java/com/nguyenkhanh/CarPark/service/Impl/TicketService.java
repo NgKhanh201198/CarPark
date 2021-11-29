@@ -5,7 +5,6 @@ import com.nguyenkhanh.CarPark.dto.TicketDTO;
 import com.nguyenkhanh.CarPark.entity.TicketEntity;
 import com.nguyenkhanh.CarPark.service.ITicketService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +13,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class TicketService implements ITicketService {
-    @Autowired
-    private ITicketRepository ticketRepository;
+//    @Autowired
+//    private ITicketRepository ticketRepository;
+//
+//    @Autowired
+//    private ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ITicketRepository ticketRepository;
+    private final ModelMapper modelMapper;
+
+    public TicketService(ITicketRepository ticketRepository, ModelMapper modelMapper) {
+        this.ticketRepository = ticketRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public void addTicket(TicketDTO ticketDTO) {

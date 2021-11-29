@@ -38,16 +38,16 @@ public class EmployeeController {
         }
     }
 
-//    @GetMapping("/employee")
-//    public ResponseEntity<?> listEmployeeResponse() {
-//        try {
-//            List<EmployeeDTOResponse> list = employeeService.listEmployeeResponse();
-//
-//            return new ResponseEntity<>(list, HttpStatus.OK);
-//        } catch (Exception exception) {
-//            return ResponseEntity.badRequest().body(exception.getMessage());
-//        }
-//    }
+    @GetMapping("/employee/{id}")
+    public ResponseEntity<?> listEmployeeResponse(@PathVariable("id") long id) {
+        try {
+            EmployeeDTOResponse employeeDTOResponse = employeeService.findByID(id);
+
+            return new ResponseEntity<>(employeeDTOResponse, HttpStatus.OK);
+        } catch (Exception exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
+    }
 
     @GetMapping("/employee/search")
     public ResponseEntity<?> searchEmployee(@RequestParam("keyword") String keyword) {

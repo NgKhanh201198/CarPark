@@ -10,5 +10,7 @@ public interface IEmployeeService {
 
     public List<EmployeeDTO> listEmployee();
 
+    public EmployeeDTOResponse findByID(long id);
+
     public List<EmployeeDTOResponse> listEmployeeResponse();
 }

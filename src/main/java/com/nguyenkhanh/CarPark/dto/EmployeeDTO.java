@@ -30,13 +30,4 @@ public class EmployeeDTO {
         this.password = password;
         this.sex = sex;
     }
-
-//    public EmployeeDTO(long employeeId, String department, String employeeAddress, String employeeBirthDate, String employeeName, String employeePhone) {
-//        this.employeeId = employeeId;
-//        this.department = department;
-//        this.employeeAddress = employeeAddress;
-//        this.employeeBirthDate = employeeBirthDate;
-//        this.employeeName = employeeName;
-//        this.employeePhone = employeePhone;
-//    }
 }
